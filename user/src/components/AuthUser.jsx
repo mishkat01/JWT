@@ -11,6 +11,11 @@ export default function AuthUser() {
   const navigate = useNavigate();
   const [token, setToken] = useState(getToken());
 
+  const logout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   const saveToken = (token) => {
     localStorage.setItem("token", JSON.stringify(token));
 
@@ -27,7 +32,7 @@ export default function AuthUser() {
   return {
     http,
     setToken: saveToken,
-
+    logout,
     getToken,
     token,
   };

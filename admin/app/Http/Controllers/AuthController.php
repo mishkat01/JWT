@@ -26,9 +26,7 @@ class AuthController extends Controller
 
 
 /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
+  * @return \Illuminate\Http\JsonResponse
      */
     public function login()
     {
@@ -38,9 +36,11 @@ class AuthController extends Controller
             return response()->json(['errors' => 'Invalid username and Password'], 401);
         }
 
-        $token = auth('api')->claims(['roles' => auth('api')->user()->getRoleIDs()])->attempt($credentials);
+        $user = auth('api')->user(); // Get the authenticated user
 
-        return $this->respondWithToken($token);
+        $token = auth('api')->claims(['roles' => $user->getRoleIDs()])->attempt($credentials);
+
+        return $this->respondWithToken($token, $user);
     }
 
 
@@ -73,20 +73,45 @@ class AuthController extends Controller
         ], 201);
     }
 
-
-/**
-     * Get the token array structure.
-     *
-     * @param  string $token
+     /**
+     * Get the authenticated User.
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function respondWithToken($token)
+    public function me()
+    {
+        return response()->json(auth()->user());
+    }
+
+    /**
+     * Log the user out (Invalidate the token).
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout()
+    {
+        auth()->logout();
+
+        return response()->json(['message' => 'Successfully logged out']);
+    }
+
+
+
+/**
+    * Get the token array structure.
+     *
+     * @param  string $token
+     * @param  \App\Models\User $user
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function respondWithToken($token, $user)
     {
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL() * 60,
+            'user' => $user // Include user details in the response
         ]);
     }
 }

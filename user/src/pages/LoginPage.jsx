@@ -12,6 +12,7 @@ function LoginPage() {
     http
       .post("/auth/login", { username: username, password: password })
       .then((response) => {
+        console.log(response.data);
         const token = response.data.access_token;
         setToken(token);
 
