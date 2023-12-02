@@ -4,10 +4,8 @@ import { Navigate, useNavigate } from "react-router";
 
 export default function AuthUser() {
   const getToken = () => {
-    const token = localStorage.getItem("token");
-    const userToken = localStorage.getItem(token);
-
-    return userToken;
+    const token = localStorage.getItem("token"); // Use "token" as the key here
+    return token;
   };
 
   const navigate = useNavigate();

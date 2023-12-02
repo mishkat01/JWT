@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import AuthUser from "./AuthUser";
 import { Navigate } from "react-router-dom";
 function Nav() {
-  const { getToken } = AuthUser;
-  // if (!getToken) {
-  //   return <Navigate to="/login" />;
-  // }
-  console.log(getToken);
+  const { getToken } = AuthUser();
+
+  if (!getToken()) {
+    return <Navigate to="/login" />;
+  }
+
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
