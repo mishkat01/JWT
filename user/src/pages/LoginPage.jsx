@@ -17,7 +17,11 @@ function LoginPage() {
         const user = response.data.user;
         setToken(token);
         setUser(user);
-        navigate("/dashboard");
+        if (user.role === "admin") {
+          navigate("/adminDashboard");
+        } else {
+          navigate("/dashboard");
+        }
       });
   };
   return (
