@@ -4,12 +4,19 @@ import { Navigate, useNavigate } from "react-router";
 
 export default function AuthUser() {
   const getToken = () => {
-    const token = localStorage.getItem("token"); // Use "token" as the key here
+    const tokenString = localStorage.getItem("token");
+    const token = JSON.parse(tokenString); // Use "token" as the key here
     return token;
+  };
+  const getUser = () => {
+    const userString = localStorage.getItem("user");
+    const user = JSON.parse(userString);
+    return user;
   };
 
   const navigate = useNavigate();
   const [token, setToken] = useState(getToken());
+  const [user, setUser] = useState(getUser());
 
   const logout = () => {
     localStorage.clear();
@@ -23,6 +30,12 @@ export default function AuthUser() {
 
     navigate("/dashboard");
   };
+
+  const saveUser = (user) => {
+    localStorage.setItem("user", JSON.stringify(user));
+    setUser(user);
+  };
+
   const http = axios.create({
     baseURL: "http://127.0.0.1:8000/api",
     headers: {
@@ -30,10 +43,13 @@ export default function AuthUser() {
     },
   });
   return {
+    user,
     http,
     setToken: saveToken,
     logout,
     getToken,
+    setUser: saveUser,
     token,
+    getUser,
   };
 }

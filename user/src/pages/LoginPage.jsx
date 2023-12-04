@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import AuthUser from "../components/AuthUser";
 function LoginPage() {
-  const { http, setToken } = AuthUser();
+  const { http, setToken, setUser } = AuthUser();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
@@ -14,8 +14,9 @@ function LoginPage() {
       .then((response) => {
         console.log(response.data);
         const token = response.data.access_token;
+        const user = response.data.user;
         setToken(token);
-
+        setUser(user);
         navigate("/dashboard");
       });
   };

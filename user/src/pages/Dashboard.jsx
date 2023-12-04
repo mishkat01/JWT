@@ -3,6 +3,7 @@ import AuthUser from "../components/AuthUser";
 import { Navigate } from "react-router-dom";
 function Dashboard() {
   const { getToken } = AuthUser();
+  const { user } = AuthUser();
   const { token, logout } = AuthUser();
   if (!getToken()) {
     return <Navigate to="/login" />;
@@ -16,7 +17,10 @@ function Dashboard() {
   return (
     <>
       <Nav />
-      <h1>Dashboard</h1>
+      <h2>hello {user.username}</h2>
+      <h2> {user.email}</h2>
+      <h2> {user.phone}</h2>
+      <br />
       <button className="" onClick={handleLogout}>
         bye
       </button>
