@@ -2,6 +2,7 @@ import Nav from "../components/Nav";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import AuthUser from "../components/AuthUser";
+
 function LoginPage() {
   const { http, setToken, setUser } = AuthUser();
   const [username, setUsername] = useState();
@@ -17,8 +18,10 @@ function LoginPage() {
         const user = response.data.user;
         setToken(token);
         setUser(user);
-        if (user.role === "admin") {
+        if (response.data.user.role === "admin") {
           navigate("/adminDashboard");
+        } else if (response.data.user.role === "vendor") {
+          navigate("/vendor");
         } else {
           navigate("/dashboard");
         }

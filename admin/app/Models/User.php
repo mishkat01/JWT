@@ -30,6 +30,7 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'email',
         'phone',
+        'role',
         
     ];
 
@@ -52,9 +53,9 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    public function getRoleIDs() {
-        $roleIDs = DB::table('roles')->where('user_id',$this->id)->pluck('ref_id');
-        return $roleIDs;
-    }
+    // public function getRoleIDs() {
+    //     $roleIDs = DB::table('roles')->where('user_id',$this->id)->pluck('ref_id');
+    //     return $roleIDs;
+    // }
 }
 

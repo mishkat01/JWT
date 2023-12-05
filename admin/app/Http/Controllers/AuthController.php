@@ -37,8 +37,8 @@ class AuthController extends Controller
         }
 
         $user = auth('api')->user(); // Get the authenticated user
-
-        $token = auth('api')->claims(['roles' => $user->getRoleIDs()])->attempt($credentials);
+       
+        $token = auth('api')->attempt($credentials);
 
         return $this->respondWithToken($token, $user);
     }
@@ -50,7 +50,8 @@ class AuthController extends Controller
             'username' => 'required',
             'password' => 'required|string|min:4',
             'email' => 'string',
-            'phone' => 'string'
+            'phone' => 'string',
+            'role'=> 'string',
         ]);
 
         if($validator->fails()){
@@ -62,17 +63,17 @@ class AuthController extends Controller
             ['password' => bcrypt($request->password),]
         ));
 
-        $role = Role::create([
-            'privilege' => 'user',
-            'ref_id' => 2001,
-            'user_id' => $user->id,
-        ]);
+        // $role = Role::create([
+        //     'privilege' => 'user',
+        //     'ref_id' => 2001,
+        //     'user_id' => $user->id,
+        // ]);
 
     
         return response()->json([
             'message' => '¡Successfully registered user!',
             'user' => $user,
-            'privilege' => $role->privilege,
+            // 'privilege' => $role->privilege,
         ], 201);
     }
 
@@ -105,7 +106,7 @@ class AuthController extends Controller
      *
      * @param  string $token
      * @param  \App\Models\User $user
-     *
+    
      * @return \Illuminate\Http\JsonResponse
      */
     protected function respondWithToken($token, $user)
@@ -114,7 +115,8 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => $user // Include user details in the response
+            'user' => $user, // Include user details in the response
+            
         ]);
     }
 }
