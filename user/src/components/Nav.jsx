@@ -15,9 +15,6 @@ function Nav() {
             <Link class="nav-item nav-link" to="/register">
               Register!
             </Link>
-            <Link class="nav-item nav-link" to="/dashboard">
-              dashboard
-            </Link>
           </div>
         </div>
       </nav>

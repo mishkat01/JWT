@@ -2,9 +2,8 @@ import Nav from "../components/Nav";
 import AuthUser from "../components/AuthUser";
 import { Navigate } from "react-router-dom";
 function Dashboard() {
-  const { getToken } = AuthUser();
   const { user } = AuthUser();
-  const { token, logout } = AuthUser();
+  const { token, logout, getToken } = AuthUser();
   if (!getToken()) {
     return <Navigate to="/login" />;
   }
