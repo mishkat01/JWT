@@ -2,8 +2,11 @@ import Nav from "../components/Nav";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import AuthUser from "../components/AuthUser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function LoginPage() {
+  const notify = () => toast("Wow so easy!");
   const { http, setToken, setUser } = AuthUser();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -19,15 +22,18 @@ function LoginPage() {
         setUser(user);
 
         if (response.data.user.role === "admin") {
+          toast.success("Login successful!");
           navigate("/adminDashboard");
         } else if (response.data.user.role === "vendor") {
+          toast.success("Login successful!");
           navigate("/vendor");
         } else if (response.data.user.role === "user") {
+          toast.success("Login successful!");
           navigate("/dashboard");
         }
       })
       .catch(function (error) {
-        alert(error.response.data.errors);
+        toast.error("Login failed. Please check your username and password.");
       });
     e.preventDefault();
   };
