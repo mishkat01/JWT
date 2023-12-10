@@ -1,23 +1,22 @@
 import AuthUser from "../../components/AuthUser";
-import Nav from "../../components/Nav";
+import AdminNav from "../../components/admin/AdminNav";
+
 import { Navigate } from "react-router-dom";
+import AdminSidebar from "../../components/admin/AdminSidebar";
+import AdminHome from "./AdminHome";
 function AdminDashboard() {
-  const { token, logout, getToken } = AuthUser();
+  const { getToken } = AuthUser();
   if (!getToken()) {
     return <Navigate to="/login" />;
   }
-  const handleLogout = () => {
-    if (token != undefined) {
-      logout();
-    }
-  };
+
   return (
     <>
-      <Nav />
-      <h1>admin here</h1>;
-      <button className="" onClick={handleLogout}>
-        bye
-      </button>
+      <AdminNav />
+
+      <div style={{ display: "flex" }}>
+        <AdminSidebar />
+      </div>
     </>
   );
 }

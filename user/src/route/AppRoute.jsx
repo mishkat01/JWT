@@ -5,6 +5,7 @@ import Dashboard from "../pages/Dashboard";
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import RegisterPage from "../pages/RegisterPage";
 import VendorPage from "../pages/vendor/VedorPage";
+import AdminHome from "../pages/admin/AdminHome";
 function AppRoute() {
   return (
     <>
@@ -12,10 +13,17 @@ function AppRoute() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/adminDashboard" element={<AdminDashboard />} />
           <Route path="/register" element={<RegisterPage />} />
+
+          {/* vendor route start */}
           <Route path="/vendor" element={<VendorPage />} />
+
+          {/* user route start */}
+          <Route path="/dashboard" element={<Dashboard />} />
+
+          {/* admin route start */}
+          <Route path="/adminDashboard" element={<AdminDashboard />} />
+          <Route path="/adminHome" element={<AdminHome />} />
         </Routes>
       </div>
     </>

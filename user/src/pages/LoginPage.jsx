@@ -2,7 +2,7 @@ import Nav from "../components/Nav";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import AuthUser from "../components/AuthUser";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function LoginPage() {
