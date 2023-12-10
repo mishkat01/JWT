@@ -19,10 +19,8 @@ function LoginPage() {
         const user = response.data.user;
         setToken(token);
         setUser(user);
-        if(response.status  === '401'){
-          alert(response.data.errors)
-        }
-         else if (response.data.user.role === "admin") {
+      
+          if (response.data.user.role === "admin") {
           navigate("/adminDashboard");
         } else if (response.data.user.role === "vendor") {
           navigate("/vendor");
@@ -31,7 +29,7 @@ function LoginPage() {
         }
       })
       .catch(function (error){
-        console.log(error.response.data.errors);
+        alert(error.response.data.errors);
       })
   };
   return (

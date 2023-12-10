@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2023 at 08:55 PM
+-- Generation Time: Dec 10, 2023 at 01:40 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -144,7 +144,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `phone`, `role`, `cr
 (6, 'mishu', '$2y$12$9Zbt8XTEW1CbWt9wfEprr.10/NSlQg7jjqVVWUxiIqBY6WAHYl2au', 'mishu@g', '015878454', 'user', '2023-12-04 11:30:13', '2023-12-04 11:30:13'),
 (7, 'rakib', '$2y$12$fMroCzQjLOY0S5D9h31KQu4j8aRZcmzv386N4rI8G10efobbulod6', 'raku@g', '420', 'user', '2023-12-05 10:19:18', '2023-12-05 10:19:18'),
 (8, 'miraj', '$2y$12$Ixt7Jeg6i6zCwknP.QJbZ.p7UdggZQdEg5wGKjtjUCuLQdhM1BA2.', 'mira@g', '43242343', 'user', '2023-12-05 10:21:00', '2023-12-05 10:21:00'),
-(9, 'alamin', '$2y$12$pcgZvUMiBr/249gHV6PLgOl/NNb8IckSS8M0jtY9q16LEb6AIqEei', 'ag@', '234324234', 'vendor', '2023-12-05 12:37:00', '2023-12-05 12:37:00');
+(9, 'alamin', '$2y$12$pcgZvUMiBr/249gHV6PLgOl/NNb8IckSS8M0jtY9q16LEb6AIqEei', 'ag@', '234324234', 'vendor', '2023-12-05 12:37:00', '2023-12-05 12:37:00'),
+(11, 'rakahsan', '$2y$12$dMyM60lQmo8wFYDHY5hYNuuesjmKq.J3a5yd0HQEF5p5PSLDFPPZq', 'raku@g', '012545445487', 'vendor', '2023-12-10 06:38:05', '2023-12-10 06:38:05');
 
 --
 -- Indexes for dumped tables
@@ -222,7 +223,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
