@@ -1,11 +1,20 @@
+import { Link } from "react-router-dom";
 function AdminSidebar() {
   return (
     <>
       <div id="mySidebar" class="sidebar">
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <Link className="link" to="#">
+          Dashboard
+        </Link>
+        <Link className="link" to="#">
+          Services
+        </Link>
+        <Link className="link" to="#">
+          Clients
+        </Link>
+        <Link className="link" to="#">
+          Contact
+        </Link>
       </div>
     </>
   );

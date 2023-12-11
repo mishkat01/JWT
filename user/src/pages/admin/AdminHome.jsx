@@ -1,12 +1,11 @@
-import AdminSidebar from "../../components/admin/AdminSidebar";
-
-function AdminHome() {
-  return (
-    <>
-      <div></div>
-      <AdminSidebar />;<h1>content</h1>
-    </>
-  );
-}
-
-export default AdminHome;
+// import AdminDashboard from "../admin/AdminDashboard";
+// const AdminHome = () => {
+//   return (
+//     <>
+//       <AdminDashboard>
+//         <h1>this is home add</h1>
+//       </AdminDashboard>
+//     </>
+//   );
+// };
+// export default AdminHome();

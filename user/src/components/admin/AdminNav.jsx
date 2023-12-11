@@ -7,17 +7,12 @@ function Nav() {
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-          Hello {user.username}
-        </a>
-
-        <div class="collapse navbar-collapse text-right" id="navbarNav">
-          <ul class="navbar-nav">
-            <li>
-              <Logout />
-            </li>
-          </ul>
+      <nav class="navbar">
+        <div style={{ paddingLeft: "5vh" }} class="username">
+          Welcome, {user.username}
+        </div>
+        <div style={{ paddingRight: "5vh" }}>
+          <Logout />
         </div>
       </nav>
     </>

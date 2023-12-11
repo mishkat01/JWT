@@ -50,7 +50,7 @@ select {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
-  background-color: rgb(65, 15, 15);
+  background-color: rgb(234, 8, 8);
   color: white;
   cursor: pointer;
   justify-content: center;
@@ -68,7 +68,7 @@ select {
   padding-top: 20px;
 }
 
-#mySidebar a {
+.link {
   padding: 10px 15px;
   text-decoration: none;
   font-size: 18px;
@@ -76,6 +76,29 @@ select {
   display: block;
 }
 
-#mySidebar a:hover {
+.link:hover {
   color: #f1f1f1;
+}
+
+/* navbar start here */
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 0px 50px;
+  display: flex;
+  justify-content: space-between; /* Align items horizontally */
+}
+
+/* Style for the username */
+.username {
+  margin-right: 20px; /* Add some spacing between username and logout button */
+}
+
+/* Style for the logout button */
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
 }

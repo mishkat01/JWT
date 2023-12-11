@@ -3,8 +3,8 @@ import AdminNav from "../../components/admin/AdminNav";
 
 import { Navigate } from "react-router-dom";
 import AdminSidebar from "../../components/admin/AdminSidebar";
-import AdminHome from "./AdminHome";
-function AdminDashboard() {
+
+const AdminDashboard = ({ children }) => {
   const { getToken } = AuthUser();
   if (!getToken()) {
     return <Navigate to="/login" />;
@@ -16,9 +16,10 @@ function AdminDashboard() {
 
       <div style={{ display: "flex" }}>
         <AdminSidebar />
+        {children}
       </div>
     </>
   );
-}
+};
 
 export default AdminDashboard;

@@ -5,7 +5,7 @@ import Dashboard from "../pages/Dashboard";
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import RegisterPage from "../pages/RegisterPage";
 import VendorPage from "../pages/vendor/VedorPage";
-import AdminHome from "../pages/admin/AdminHome";
+
 function AppRoute() {
   return (
     <>
@@ -23,7 +23,6 @@ function AppRoute() {
 
           {/* admin route start */}
           <Route path="/adminDashboard" element={<AdminDashboard />} />
-          <Route path="/adminHome" element={<AdminHome />} />
         </Routes>
       </div>
     </>
