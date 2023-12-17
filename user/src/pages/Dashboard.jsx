@@ -1,17 +1,36 @@
 import Nav from "../components/Nav";
+import { useEffect } from "react";
 import AuthUser from "../components/AuthUser";
 import { Navigate } from "react-router-dom";
 function Dashboard() {
-  const { user } = AuthUser();
+  const { user, http } = AuthUser();
   const { token, logout, getToken } = AuthUser();
-  if (!getToken()) {
-    return <Navigate to="/login" />;
-  }
+  http.get("auth/me").then((res) => {
+    console.log(res.data);
+  });
+  useEffect(() => {
+    const checkToken = () => {
+      const currentToken = getToken();
+      if (currentToken !== token) {
+        setToken(currentToken);
+        if (!currentToken) {
+          return <Navigate to="/login" />;
+        }
+      }
+    };
+
+    window.addEventListener("storage", checkToken);
+
+    return () => {
+      window.removeEventListener("storage", checkToken);
+    };
+  }, [token, getToken]);
   const handleLogout = () => {
     if (token != undefined) {
       logout();
     }
   };
+  console.log(token);
 
   return (
     <>
