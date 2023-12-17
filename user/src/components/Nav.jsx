@@ -7,9 +7,9 @@ function Nav() {
     <>
       <nav class="navbar navbar-expand-lg navbar-dark bg-secondary rounded">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          {/* <a class="navbar-brand" href="#">
             Navbar
-          </a>
+          </a> */}
           <button
             class="navbar-toggler"
             type="button"
@@ -84,21 +84,48 @@ function Nav() {
 
             {user ? (
               <>
-                <button class="btn btn-light radius-30 px-4" type="submit">
+                <button class="btn btn-light radius-30 px-4">
                   <i class="bx bx-calendar-event"></i>{" "}
-                  <Link to="/dashboard">dashboard!</Link>
+                  <Link
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      fontSize: "17px",
+                    }}
+                    to="/dashboard"
+                  >
+                    dashboard!
+                  </Link>
                 </button>
               </>
             ) : (
               <>
                 <button class="btn btn-dark me-3 radius-30 px-4">
                   <i class="bx bx-lock"></i>
-                  <Link to="/login">login</Link>
+                  <Link
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                      fontSize: "17px",
+                    }}
+                    to="/login"
+                  >
+                    login
+                  </Link>
                 </button>
 
-                <button class="btn btn-light radius-30 px-4" type="submit">
-                  <i class="bx bx-calendar-event"></i>{" "}
-                  <Link to="/register">Register!</Link>
+                <button class="btn btn-light radius-30 px-4">
+                  <i class="bx bx-calendar-event"></i>
+                  <Link
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      fontSize: "17px",
+                    }}
+                    to="/register"
+                  >
+                    Register!
+                  </Link>
                 </button>
               </>
             )}
