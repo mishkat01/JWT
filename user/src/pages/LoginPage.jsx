@@ -45,7 +45,10 @@ function LoginPage() {
   };
   return (
     <>
-      <Nav />
+      <div>
+        <Nav />
+      </div>
+
       <main class="authentication-content">
         <div class="container-fluid">
           <div class="authentication-card">

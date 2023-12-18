@@ -27,8 +27,9 @@ function RegisterPage() {
   return (
     <>
       <Nav />
+
       <main class="authentication-content">
-        <div class="container-fluid">
+        <div>
           <div class="authentication-card">
             <div class="card shadow rounded-0 overflow-hidden">
               <div class="row g-0">
