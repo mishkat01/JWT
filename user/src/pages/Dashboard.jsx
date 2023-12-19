@@ -2,6 +2,7 @@ import Nav from "../components/Nav";
 
 import AuthUser from "../components/AuthUser";
 import { Navigate } from "react-router-dom";
+import UserSidebar from "../components/user/UserSidebar";
 function Dashboard() {
   const { token, logout, getToken, user, http } = AuthUser();
   // http.get("auth/me").then((res) => {
@@ -20,13 +21,7 @@ function Dashboard() {
   return (
     <>
       <Nav />
-      <h2>hello {user.username}</h2>
-      <h2> {user.email}</h2>
-      <h2> {user.phone}</h2>
-      <br />
-      <button className="" onClick={handleLogout}>
-        bye
-      </button>
+      <UserSidebar />
     </>
   );
 }
