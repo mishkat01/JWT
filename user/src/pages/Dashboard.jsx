@@ -21,7 +21,12 @@ function Dashboard() {
   return (
     <>
       <Nav />
-      <UserSidebar />
+      <div style={{ display: "flex" }}>
+        <div>
+          <UserSidebar />
+        </div>
+        <div>This is dashboard</div>
+      </div>
     </>
   );
 }

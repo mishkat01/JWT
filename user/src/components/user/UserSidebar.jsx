@@ -1,5 +1,5 @@
 import AuthUser from "../AuthUser";
-
+import { Link } from "react-router-dom";
 function UserSidebar() {
   const { user } = AuthUser();
 
@@ -20,21 +20,21 @@ function UserSidebar() {
         </a>
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
-          <li className="nav-item">
-            <a href="#" className="nav-link " aria-current="page">
-              <svg className="bi me-2" width="16" height="16">
-                <use xlinkHref="#home"></use>
-              </svg>
-              Home
-            </a>
-          </li>
           <li>
-            <a href="#" className="nav-link link-dark">
+            <Link to="/dashboard" className="nav-link link-dark">
               <svg className="bi me-2" width="16" height="16">
                 <use xlinkHref="#speedometer2"></use>
               </svg>
-              Dashboard
-            </a>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/userOrder" className="nav-link link-dark">
+              <svg className="bi me-2" width="16" height="16">
+                <use xlinkHref="#speedometer2"></use>
+              </svg>
+              My Orders
+            </Link>
           </li>
           <li>
             <a href="#" className="nav-link link-dark">
