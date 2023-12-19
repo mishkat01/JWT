@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-// import "../src/assets/css/custom.css";
+import "../src/assets/css/custom.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/assets/css/fontawesome.css";
 import "../src/assets/my.js";

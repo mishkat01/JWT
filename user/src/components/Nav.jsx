@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 import AuthUser from "./AuthUser";
 
 function Nav() {
-  const { user } = AuthUser();
+  const { user, token, logout } = AuthUser();
+  const handleLogout = () => {
+    if (token != undefined) {
+      logout();
+    }
+  };
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-secondary rounded">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
         <div class="container-fluid">
           {/* <a class="navbar-brand" href="#">
             Navbar
@@ -36,55 +41,16 @@ function Nav() {
                 </Link>
               </li>
               <li class="nav-item">
-                {" "}
-                <a class="nav-link" href="#">
-                  <i class="bx bx-category-alt me-1"></i>Features
-                </a>
-              </li>
-              <li class="nav-item">
-                {" "}
-                <a class="nav-link" href="#">
-                  <i class="bx bx-microphone me-1"></i>Contact
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                {" "}
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
+                <Link class="nav-item nav-link" to="/allProduct">
+                  About Us
+                </Link>
               </li>
             </ul>
 
             {user ? (
               <>
                 <button class="btn btn-light radius-30 px-4">
-                  <i class="bx bx-calendar-event"></i>{" "}
+                  {/* <i class="bx bx-calendar-event"></i>{" "} */}
                   <Link
                     style={{
                       textDecoration: "none",
@@ -96,11 +62,21 @@ function Nav() {
                     dashboard!
                   </Link>
                 </button>
+                <button
+                  style={{
+                    marginLeft: "10px",
+                    marginRight: "10px",
+                  }}
+                  class="btn btn-light radius-30 px-4"
+                  onClick={handleLogout}
+                >
+                  LogOut!
+                </button>
               </>
             ) : (
               <>
                 <button class="btn btn-dark me-3 radius-30 px-4">
-                  <i class="bx bx-lock"></i>
+                  {/* <i class="bx bx-lock"></i> */}
                   <Link
                     style={{
                       textDecoration: "none",
@@ -114,7 +90,7 @@ function Nav() {
                 </button>
 
                 <button class="btn btn-light radius-30 px-4">
-                  <i class="bx bx-calendar-event"></i>
+                  {/* <i class="bx bx-calendar-event"></i> */}
                   <Link
                     style={{
                       textDecoration: "none",
