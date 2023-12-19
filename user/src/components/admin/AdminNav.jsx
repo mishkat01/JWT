@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import AuthUser from "../AuthUser";
 import Logout from "../Logout";
-
+import React, { useState } from "react";
 function Nav() {
-  const { user } = AuthUser();
-
   return (
     <>
       <nav class="navbar">

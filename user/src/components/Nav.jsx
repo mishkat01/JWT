@@ -31,10 +31,9 @@ function Nav() {
                 </Link>
               </li>
               <li class="nav-item">
-                {" "}
-                <a class="nav-link" href="#">
-                  <i class="bx bx-user me-1"></i>About
-                </a>
+                <Link class="nav-item nav-link" to="/allProduct">
+                  All Product
+                </Link>
               </li>
               <li class="nav-item">
                 {" "}

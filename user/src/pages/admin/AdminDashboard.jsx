@@ -14,10 +14,7 @@ const AdminDashboard = ({ children }) => {
     <>
       <AdminNav />
 
-      <div style={{ display: "flex" }}>
-        <AdminSidebar />
-        {children}
-      </div>
+      <div style={{ display: "flex" }}>{children}</div>
     </>
   );
 };

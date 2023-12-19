@@ -13,8 +13,6 @@ import "../src/assets/js/pace.min.js";
 import "../src/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js";
 import "../src/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js";
 import "../src/assets/plugins/apexcharts-bundle/js/apexcharts.min.js";
-import "../src/assets/js/app.js";
-import "../src/assets/js/index.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
