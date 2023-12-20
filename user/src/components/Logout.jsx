@@ -12,7 +12,12 @@ function Logout() {
   };
   return (
     <>
-      <button className="logout_button" onClick={handleLogout}>
+      <button
+        style={{ marginLeft: "10px" }}
+        type="button"
+        class="btn btn-warning px-5 radius-30"
+        onClick={handleLogout}
+      >
         Logout
       </button>
     </>

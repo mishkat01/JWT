@@ -48,7 +48,7 @@ a {
 /* Header */
 
 .top-header .navbar {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0px;
   right: 0;
@@ -1639,7 +1639,7 @@ a {
   }
 
   .top-header .navbar .full-searchbar {
-    position: absolute;
+    /* position: absolute; */
     top: 0%;
     left: 0;
     right: 0%;

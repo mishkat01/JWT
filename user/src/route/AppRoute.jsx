@@ -7,6 +7,7 @@ import RegisterPage from "../pages/RegisterPage";
 import VendorPage from "../pages/vendor/VedorPage";
 import AllProductPage from "../pages/AllProductPage";
 import UserOrder from "../pages/user/UserOrder";
+import ProductAdd from "../pages/admin/product/ProductAdd";
 
 function AppRoute() {
   return (
@@ -28,6 +29,7 @@ function AppRoute() {
 
           {/* admin route start */}
           <Route path="/adminDashboard" element={<AdminDashboard />} />
+          <Route path="/productAdd" element={<ProductAdd />} />
         </Routes>
       </div>
     </>
