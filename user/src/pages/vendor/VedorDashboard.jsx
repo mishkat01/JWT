@@ -1,7 +1,7 @@
 import AuthUser from "../../components/AuthUser";
 import Nav from "../../components/Nav";
 import { Navigate } from "react-router-dom";
-function VendorPage() {
+function VendorDashboard() {
   const { token, logout, getToken } = AuthUser();
   if (!getToken()) {
     return <Navigate to="/login" />;
@@ -22,4 +22,4 @@ function VendorPage() {
   );
 }
 
-export default VendorPage;
+export default VendorDashboard;

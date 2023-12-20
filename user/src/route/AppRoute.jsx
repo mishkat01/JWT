@@ -4,7 +4,7 @@ import LoginPage from "../pages/LoginPage";
 import Dashboard from "../pages/Dashboard";
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import RegisterPage from "../pages/RegisterPage";
-import VendorPage from "../pages/vendor/VedorPage";
+import VendorDashboard from "../pages/vendor/VedorDashboard";
 import AllProductPage from "../pages/AllProductPage";
 import UserOrder from "../pages/user/UserOrder";
 import ProductAdd from "../pages/admin/product/ProductAdd";
@@ -23,7 +23,7 @@ function AppRoute() {
           <Route path="/register" element={<RegisterPage />} />
 
           {/* vendor route start */}
-          <Route path="/vendor" element={<VendorPage />} />
+          <Route path="/vendor" element={<VendorDashboard />} />
 
           {/* user route start */}
           <Route path="/dashboard" element={<Dashboard />} />
