@@ -20,12 +20,12 @@ const AdminSidebar = () => {
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
           <li>
-            <a href="#" className="nav-link text-white">
+            <Link to="/adminDashboard" className="nav-link text-white">
               <svg className="bi me-2" width="16" height="16">
-                <use xlinkHref="#speedometer2"></use>
+                <use xlinkHref="#table"></use>
               </svg>
               Dashboard
-            </a>
+            </Link>
           </li>
           <li>
             <Link to="/productAdd" className="nav-link text-white">
@@ -36,28 +36,20 @@ const AdminSidebar = () => {
             </Link>
           </li>
           <li>
-            <a href="#" className="nav-link text-white">
+            <Link to="/productAll" className="nav-link text-white">
               <svg className="bi me-2" width="16" height="16">
-                <use xlinkHref="#grid"></use>
+                <use xlinkHref="#table"></use>
               </svg>
               Product's
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="nav-link text-white">
+            <Link to="/vendorAll" className="nav-link text-white">
               <svg className="bi me-2" width="16" height="16">
-                <use xlinkHref="#people-circle"></use>
+                <use xlinkHref="#table"></use>
               </svg>
-              Vendor's
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link text-white">
-              <svg className="bi me-2" width="16" height="16">
-                <use xlinkHref="#people-circle"></use>
-              </svg>
-              Review add's
-            </a>
+              vendor's
+            </Link>
           </li>
         </ul>
         <hr />

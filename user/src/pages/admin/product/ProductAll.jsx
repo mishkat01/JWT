@@ -2,8 +2,7 @@ import AdminSidebar from "../../../components/admin/AdminSidebar";
 import AdminNav from "../../../components/admin/AdminNav";
 import AuthUser from "../../../components/AuthUser";
 import { Navigate } from "react-router-dom";
-
-function ProductAdd() {
+function ProductAll() {
   const { getToken } = AuthUser();
   if (!getToken()) {
     return <Navigate to="/login" />;
@@ -18,11 +17,11 @@ function ProductAdd() {
           <AdminSidebar />
         </div>
         <div style={{ display: "inline-block" }}>
-          <h1>hi</h1>
+          <h1>All</h1>
         </div>
       </div>
     </>
   );
 }
 
-export default ProductAdd;
+export default ProductAll;
