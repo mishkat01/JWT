@@ -25,7 +25,9 @@ function DashboardLayout() {
         <div>
           <UserSidebar />
         </div>
-        <Outlet />
+        <div>
+          <Outlet />
+        </div>
       </div>
     </>
   );

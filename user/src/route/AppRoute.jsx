@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
-import Dashboard from "../pages/Dashboard";
+
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import RegisterPage from "../pages/RegisterPage";
 import VendorDashboard from "../pages/vendor/VedorDashboard";
@@ -12,6 +12,7 @@ import ProductAll from "../pages/admin/product/ProductAll";
 import VendorAll from "../pages/admin/vendor/VendorAll";
 import User from "../pages/user/User";
 import DashboardLayout from "../pages/DashboardLayout";
+import AdminHome from "../pages/admin/AdminHome";
 
 function AppRoute() {
   return (
@@ -29,15 +30,17 @@ function AppRoute() {
 
           {/* user route start */}
           <Route path="/dashboard" element={<DashboardLayout />}>
-            <Route path="user" element={<User />}></Route>
+            <Route index element={<User />}></Route>
+            <Route path="userOrder" element={<UserOrder />}></Route>
           </Route>
-          <Route path="/userOrder" element={<UserOrder />} />
 
           {/* admin route start */}
-          <Route path="/adminDashboard" element={<AdminDashboard />} />
-          <Route path="/productAdd" element={<ProductAdd />} />
-          <Route path="/productAll" element={<ProductAll />} />
-          <Route path="/vendorAll" element={<VendorAll />} />
+          <Route path="/adminDashboard" element={<AdminDashboard />}>
+            <Route index element={<AdminHome />} />
+            <Route path="productAdd" element={<ProductAdd />} />
+            <Route path="productAll" element={<ProductAll />} />
+            <Route path="vendorAll" element={<VendorAll />} />
+          </Route>
         </Routes>
       </div>
     </>

@@ -10,17 +10,7 @@ function ProductAdd() {
   }
   return (
     <>
-      <div>
-        <AdminNav />
-      </div>
-      <div style={{ display: "flex" }}>
-        <div>
-          <AdminSidebar />
-        </div>
-        <div style={{ display: "inline-block" }}>
-          <h1>hi</h1>
-        </div>
-      </div>
+      <h1>p add</h1>
     </>
   );
 }
