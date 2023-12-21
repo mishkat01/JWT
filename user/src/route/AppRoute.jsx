@@ -10,6 +10,8 @@ import UserOrder from "../pages/user/UserOrder";
 import ProductAdd from "../pages/admin/product/ProductAdd";
 import ProductAll from "../pages/admin/product/ProductAll";
 import VendorAll from "../pages/admin/vendor/VendorAll";
+import User from "../pages/user/User";
+import DashboardLayout from "../pages/DashboardLayout";
 
 function AppRoute() {
   return (
@@ -26,7 +28,9 @@ function AppRoute() {
           <Route path="/vendor" element={<VendorDashboard />} />
 
           {/* user route start */}
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route path="user" element={<User />}></Route>
+          </Route>
           <Route path="/userOrder" element={<UserOrder />} />
 
           {/* admin route start */}
