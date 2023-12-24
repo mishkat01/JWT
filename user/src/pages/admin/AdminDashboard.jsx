@@ -5,8 +5,8 @@ import { Navigate, Outlet } from "react-router-dom";
 import AdminSidebar from "../../components/admin/AdminSidebar";
 
 const AdminDashboard = () => {
-  const { getToken } = AuthUser();
-  if (!getToken()) {
+  const { getToken, user } = AuthUser();
+  if (!getToken() || !(user.role == "admin")) {
     return <Navigate to="/login" />;
   }
 
