@@ -1,6 +1,8 @@
 import AuthUser from "../../components/AuthUser";
-import Nav from "../../components/Nav";
+import VendorNav from "../../components/vendor/VendorNav";
+import VendorSidebar from "../../components/vendor/VendorSidebar";
 import { Navigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 function VendorDashboard() {
   const { token, logout, getToken } = AuthUser();
   if (!getToken()) {
@@ -13,11 +15,16 @@ function VendorDashboard() {
   };
   return (
     <>
-      <Nav />
-      <h1>Vendor here</h1>;
-      <button className="" onClick={handleLogout}>
-        bye
-      </button>
+      {" "}
+      <VendorNav />
+      <div style={{ display: "flex" }}>
+        <div>
+          <VendorSidebar />
+        </div>
+        <div>
+          <Outlet />
+        </div>
+      </div>
     </>
   );
 }
