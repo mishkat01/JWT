@@ -15,13 +15,13 @@ function VendorDashboard() {
   };
   return (
     <>
-      {" "}
       <VendorNav />
+
       <div style={{ display: "flex" }}>
         <div>
           <VendorSidebar />
         </div>
-        <div>
+        <div style={{ flex: 1, width: "100%" }}>
           <Outlet />
         </div>
       </div>

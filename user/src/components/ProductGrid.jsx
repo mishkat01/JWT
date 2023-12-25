@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import AppURL from "../api/AppURL";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function ProductGrid() {
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
     axios
-      .get(AppURL.AllProduct)
+      .get(AppURL.AllActiveProduct)
       .then((response) => {
         setProductData(response.data);
       })
@@ -58,12 +59,12 @@ function ProductGrid() {
                   >
                     <i className="bi bi-pencil-fill"></i> Buy
                   </a>
-                  <a
-                    href="javascript:;"
+                  <Link
+                    to={`/productDetails/${product.id}`}
                     className="btn btn-sm btn-outline-success"
                   >
-                    <i className="bi bi-trash-fill"></i> Details
-                  </a>
+                    <i className="bi-info-circle-fill"></i> Details
+                  </Link>
                 </div>
               </div>
             </div>

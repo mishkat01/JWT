@@ -18,10 +18,10 @@ const TopProduct = () => {
       });
   }, []);
 
-  const submitAddToCart = (e) => {
-    e.preventDefault();
-    product_;
-  };
+  // const submitAddToCart = (e) => {
+  //   e.preventDefault();
+  //   product_;
+  // };
 
   return (
     <div
@@ -54,7 +54,7 @@ const TopProduct = () => {
                 <a
                   href="javascript:;"
                   className="btn btn-sm btn-outline-primary"
-                  onClick={submitAddToCart}
+                  // onClick={submitAddToCart}
                 >
                   <i className="bi bi-pencil-fill"></i> Buy
                 </a>
@@ -62,7 +62,7 @@ const TopProduct = () => {
                   to={`/productDetails/${product.id}`}
                   className="btn btn-sm btn-outline-success"
                 >
-                  <i className="bi bi-trash-fill"></i> Details
+                  <i className="bi-info-circle-fill"></i> Details
                 </Link>
               </div>
             </div>

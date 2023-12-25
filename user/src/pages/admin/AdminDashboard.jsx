@@ -19,7 +19,7 @@ const AdminDashboard = () => {
         <div>
           <AdminSidebar />
         </div>
-        <div>
+        <div style={{ flex: 1, width: "100%" }}>
           <Outlet />
         </div>
       </div>

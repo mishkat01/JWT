@@ -12,13 +12,19 @@ class ProductController extends Controller
 {
     public function ProductListByRemark(Request $request){
         $remark =$request->remark;
-        $productlist=  ProductList :: where('remark',$remark)->get();
+        $productlist=  ProductList :: where('remark',$remark)->where('status', 1)->get();
         return $productlist;
     }
+  
 
     public function AllProduct(){
        
         $allProduct=  ProductList ::latest()->get() ;
+        return $allProduct;
+    }
+    public function getActiveProduct(){
+       
+        $allProduct=  ProductList ::where('status',1)->get() ;
         return $allProduct;
     }
 
@@ -34,7 +40,7 @@ class ProductController extends Controller
 
        $image = $request->file('image');
        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-       Image::make($image)->resize(711,960)->save('upload/product/'.$name_gen);
+       Image::make($image)->resize(820,600)->save('upload/product/'.$name_gen);
        $save_url = 'http://127.0.0.1:8000/upload/product/'.$name_gen;
 
        $product_id = ProductList::insertGetId([
@@ -45,7 +51,7 @@ class ProductController extends Controller
            'category' => $request->category,
            'subcategory' => $request->subcategory,
            'remark' => $request->remark,
-           'status' => $request->status, 
+           'status' => 0, 
            'product_code' => $request->product_code,
            'image' => $save_url, 
 
@@ -74,6 +80,23 @@ class ProductController extends Controller
 
 
    } // End Method 
+
+   public  function activeStatus(Request $request){
+    $product_id =$request->id;
+
+    ProductList::findOrFail($product_id)->update([
+        'status' => 1,
+
+        
+    ]);
+   
+   
+    return response()->json([
+        'message' => 'Product pusblished successfully',
+        'product_id' => $product_id,
+    ]);
+ 
+}
 
 
     

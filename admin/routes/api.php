@@ -36,6 +36,9 @@ Route::post('logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
 Route::get('/productList/{remark}', [ProductController::class, 'ProductListByRemark']);
 Route::get('/allProduct', [ProductController::class, 'AllProduct']);
+Route::get('/allActiveProduct', [ProductController::class, 'getActiveProduct']);
+Route::post('/activeStatus/{id}', [ProductController::class, 'activeStatus']);
+
 Route::post('/storeProduct', [ProductController::class, 'StoreProduct']);
 
 
