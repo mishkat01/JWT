@@ -39,7 +39,10 @@ const AdminSidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/productAll" className="nav-link text-white">
+            <Link
+              to="/adminDashboard/productAll"
+              className="nav-link text-white"
+            >
               <svg className="bi me-2" width="16" height="16">
                 <use xlinkHref="#table"></use>
               </svg>
@@ -47,7 +50,10 @@ const AdminSidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/vendorAll" className="nav-link text-white">
+            <Link
+              to="/adminDashboard/vendorAll"
+              className="nav-link text-white"
+            >
               <svg className="bi me-2" width="16" height="16">
                 <use xlinkHref="#table"></use>
               </svg>

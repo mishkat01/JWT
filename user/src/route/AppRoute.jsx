@@ -13,7 +13,9 @@ import VendorAll from "../pages/admin/vendor/VendorAll";
 import User from "../pages/user/User";
 import DashboardLayout from "../pages/DashboardLayout";
 import AdminHome from "../pages/admin/AdminHome";
-import ProductDetails from "../pages/ProductDetails";
+import VendorHome from "../pages/vendor/VendorHome";
+import VendorProductAdd from "../pages/vendor/product/VendorProductAdd";
+import VendorProductAll from "../pages/vendor/product/VendorProductAll";
 
 function AppRoute() {
   return (
@@ -28,7 +30,11 @@ function AppRoute() {
           <Route path="/register" element={<RegisterPage />} />
 
           {/* vendor route start */}
-          <Route path="/vendor" element={<VendorDashboard />} />
+          <Route path="/vendor" element={<VendorDashboard />}>
+            <Route index element={<VendorHome />}></Route>
+            <Route path="productAdd" element={<VendorProductAdd />}></Route>
+            <Route path="productAll" element={<VendorProductAll />}></Route>
+          </Route>
 
           {/* user route start */}
           <Route path="/dashboard" element={<DashboardLayout />}>

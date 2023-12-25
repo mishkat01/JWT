@@ -1,55 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import AdminSidebar from "../../../components/admin/AdminSidebar";
+import AdminNav from "../../../components/admin/AdminNav";
+import AuthUser from "../../../components/AuthUser";
+import { Navigate } from "react-router-dom";
 
-export default function AddStudent() {
-  const navigate = useNavigate();
-  const [s_name, setName] = useState("");
-  const [dob, setDob] = useState("");
-  const [phone, setPhone] = useState("");
-  const [pfile, setPfile] = useState("");
-  const [message, setMessage] = useState("");
-  const [course, setCourse] = useState([]);
-  const [selectedCourse, setSelectedCourse] = useState(""); // Added state for selected course
-  const [selectBatch, setSelectedBatch] = useState("");
-  const [batch, setBatch] = useState([]);
-
-  // get course information
-  useEffect(() => {
-    getUsers();
-  }, []);
-
-  function getUsers() {
-    axios.get("/exam_manag_api/course.php").then(function response(response) {
-      setCourse(response.data);
-      setBatch(response.data);
-    });
+function ProductAdd() {
+  const { getToken } = AuthUser();
+  if (!getToken()) {
+    return <Navigate to="/login" />;
   }
-
-  const uploadProduct = async () => {
-    const formData = new FormData();
-    formData.append("s_name", s_name);
-    formData.append("dob", dob);
-    formData.append("course", selectedCourse); // Use the selectedCourse state
-    formData.append("batch_no", selectBatch);
-    formData.append("phone", phone);
-    formData.append("pfile", pfile);
-
-    const response = await axios.post("/exam_manag_api/student.php", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
-    console.log(formData);
-    setMessage("Student inserted :)");
-    setTimeout(() => {
-      navigate("/student");
-    }, 3000);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await uploadProduct();
-  };
-
   return (
     <div className="d-flex flex-column align-items-center pt-4">
       <h2>Add Student</h2>
