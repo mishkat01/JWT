@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\ProductCartController;
+use App\Http\Controllers\ProductDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +28,25 @@ Route::group([
     Route::get('me', [App\Http\Controllers\AuthController::class, 'me']);
 Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
 Route::post('logout', [App\Http\Controllers\AuthController::class, 'logout']);
+
+
+
+
 });
+
+Route::get('/productList/{remark}', [ProductController::class, 'ProductListByRemark']);
+Route::get('/allProduct', [ProductController::class, 'AllProduct']);
+Route::post('/storeProduct', [ProductController::class, 'StoreProduct']);
+
+
+
+
+// Product Details Route
+Route::get('/productdetails/{id}',[ProductDetailsController::class, 'ProductDetails']);
+
+Route::post('/addToCart', [ProductCartController::class, 'addToCart']);
+
+Route::get('/cartcount/{product_code}', [ProductCartController::class, 'CartCount']);
+
+
+

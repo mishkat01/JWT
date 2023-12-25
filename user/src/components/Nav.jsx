@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
 import AuthUser from "./AuthUser";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import AppURL from "../api/AppURL";
 
-function Nav() {
+function Nav({ product_code }) {
   const { user, token, logout } = AuthUser();
+  const [cartCount, setCartCount] = useState(0);
+
   const handleLogout = () => {
     if (token != undefined) {
       logout();
     }
   };
+  useEffect(() => {
+    axios.get(AppURL.CartCount(product_code)).then((response) => {
+      setCartCount(response.data);
+    });
+  }, []);
+
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
@@ -49,6 +60,19 @@ function Nav() {
 
             {user ? (
               <>
+                <button class="btn btn-light radius-30 px-4 pe-4 me-2">
+                  {/* <i class="bx bx-calendar-event"></i>{" "} */}
+                  <Link
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      fontSize: "17px",
+                    }}
+                    to="/dashboard"
+                  >
+                    {cartCount} Items
+                  </Link>
+                </button>
                 <button class="btn btn-light radius-30 px-4">
                   {/* <i class="bx bx-calendar-event"></i>{" "} */}
                   <Link

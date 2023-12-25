@@ -13,6 +13,7 @@ import VendorAll from "../pages/admin/vendor/VendorAll";
 import User from "../pages/user/User";
 import DashboardLayout from "../pages/DashboardLayout";
 import AdminHome from "../pages/admin/AdminHome";
+import ProductDetails from "../pages/ProductDetails";
 
 function AppRoute() {
   return (
@@ -21,6 +22,7 @@ function AppRoute() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/allProduct" element={<AllProductPage />} />
+          <Route path="/productDetails/:id" element={<ProductDetails />} />
 
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
