@@ -38,10 +38,12 @@ Route::get('/productList/{remark}', [ProductController::class, 'ProductListByRem
 Route::get('/allProduct', [ProductController::class, 'AllProduct']);
 Route::get('/allActiveProduct', [ProductController::class, 'getActiveProduct']);
 Route::post('/activeStatus/{id}', [ProductController::class, 'activeStatus']);
+Route::get('/deleteProduct/{id}', [ProductController::class, 'DeleteProduct']);
 
 Route::post('/storeProduct', [ProductController::class, 'StoreProduct']);
+Route::get('/CartDetails', [ProductCartController   ::class, 'CartDetails']);
 
-
+Route::get('/user-product-data/{username}', [ProductCartController::class, 'getUserProductData']);
 
 
 // Product Details Route

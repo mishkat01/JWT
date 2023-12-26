@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
 const VendorAll = () => {
   const [products, setProducts] = useState([]);
 
@@ -9,6 +11,18 @@ const VendorAll = () => {
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
+
+  const handleDelete = (productId) => {
+    fetch(`http://127.0.0.1:8000/api/deleteProduct/${productId}`)
+      .then((response) => {
+        toast.success("This Ad is Now Live!");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error deleting product:", error);
+        // Handle error and show a notification or feedback to the user
+      });
+  };
 
   const handlePublish = (productId) => {
     fetch(`http://127.0.0.1:8000/api/activeStatus/${productId}`, {
@@ -68,17 +82,32 @@ const VendorAll = () => {
               <td>{product.added_by && <p>{product.added_by.username}</p>}</td>
               <td>
                 {product.status === "1" ? (
-                  <button type="button" className="btn btn-info px-5" disabled>
-                    pusblished
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      className="btn btn-info px-5"
+                      disabled
+                    >
+                      pusblished
+                    </button>
+                    <Link
+                      to={`http://127.0.0.1:8000/api/deleteProduct/${product.id}`}
+                      onClick={handleDelete}
+                      className="btn btn-sm btn-outline-danger"
+                    >
+                      <i className="bi-info-circle-fill"></i> delete
+                    </Link>
+                  </>
                 ) : (
-                  <button
-                    type="button"
-                    className="btn btn-dark px-5"
-                    onClick={() => handlePublish(product.id)}
-                  >
-                    <i className="bi bi-upload"></i>Publish
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      className="btn btn-dark px-5"
+                      onClick={() => handlePublish(product.id)}
+                    >
+                      <i className="bi bi-upload"></i>Publish
+                    </button>
+                  </>
                 )}
               </td>
             </tr>

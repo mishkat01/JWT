@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\ProductCart;
 use App\Models\ProductList;
+use App\Models\User;
 
 
 class ProductCartController extends Controller
 {
     public function addToCart(Request $request){
-       
+        $user_name= $request->input('user_name');
         $email = $request->input('email');
         $product_code = $request->input('product_code');
         $quantity = $request->input('quantity'); 
@@ -29,7 +30,7 @@ class ProductCartController extends Controller
         }
 
         $result = ProductCart::insert([
-
+            'user_name'=> $user_name,
             'email' => $email,
             'image' => $productDetails[0]['image'],
             'product_name' => $productDetails[0]['title'],
@@ -49,6 +50,25 @@ class ProductCartController extends Controller
             $result = ProductCart::count();
             return $result;
         } // End Method 
+
+
+        public function getUserProductData($username)
+{
+    $userData = DB::table('users')
+        ->join('product_carts', 'users.username', '=', 'product_carts.user_name')
+        ->where('users.username', $username)
+        ->get();
+
+    // Now $userData contains all the data where the username matches in both tables
+
+    return $userData ;
+}
+
+public function CartDetails(Request $request){
+   
+    $result = ProductCart::latest()->get();
+    return $result;
+} // End Method 
    
     }
 

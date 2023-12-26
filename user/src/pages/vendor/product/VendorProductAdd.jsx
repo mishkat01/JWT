@@ -2,7 +2,10 @@
 import AuthUser from "../../../components/AuthUser";
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import AppURL from "../../../api/AppURL";
+import { redirect } from "react-router";
 
 const VendorProductAdd = () => {
   const { user } = AuthUser();
@@ -50,7 +53,9 @@ const VendorProductAdd = () => {
         "http://127.0.0.1:8000/api/storeProduct",
         data
       );
+      toast.success("Product added successfull");
       console.log(response.data);
+      window.location.reload();
       // Handle success, e.g., redirect or show a success message
     } catch (error) {
       console.error("Error adding product:", error);

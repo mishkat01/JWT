@@ -68,7 +68,7 @@ function Nav({ product_code }) {
                       color: "black",
                       fontSize: "17px",
                     }}
-                    to="/dashboard"
+                    to="/dashboard/userOrder"
                   >
                     {cartCount} Items
                   </Link>

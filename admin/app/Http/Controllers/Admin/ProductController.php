@@ -98,6 +98,16 @@ class ProductController extends Controller
  
 }
 
+public function DeleteProduct($id){
+  
+
+    ProductList::findOrfail($id)->delete();
+  
+    return response('');
+}//end method
+
+
+
 
     
 }

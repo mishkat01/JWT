@@ -26,26 +26,24 @@ function Carousal() {
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item" data-bs-interval="10000">
-            <img src="/images/gallery/26.png" class="d-block w-100" alt="..." />
+            <img src="/images/gallery/05.png" class="d-block w-100" alt="..." />
             <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h5>All kid of Product availabe here</h5>
+              <p>All in One pLace</p>
             </div>
           </div>
           <div class="carousel-item active" data-bs-interval="2000">
-            <img src="/images/gallery/33.png" class="d-block w-100" alt="..." />
+            <img src="/images/gallery/03.png" class="d-block w-100" alt="..." />
             <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h5>All kid of Product availabe here</h5>
+              <p>All in One pLace</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="/images/gallery/22.png" class="d-block w-100" alt="..." />
+            <img src="/images/gallery/23.png" class="d-block w-100" alt="..." />
             <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              <h5>All kid of Product availabe here</h5>
+              <p>All in One pLace</p>
             </div>
           </div>
         </div>

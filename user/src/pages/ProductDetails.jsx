@@ -14,12 +14,13 @@ import "react-toastify/dist/ReactToastify.css";
 import AuthUser from "../components/AuthUser";
 
 function ProductDetails() {
-  const { getToken } = AuthUser();
+  const { getToken, user } = AuthUser();
   const { id } = useParams();
   const [productDetails, setProductDetails] = useState({});
   const [productList, setProductList] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [PageRef, setPageRef] = useState(false);
+  console.log(user);
 
   useEffect(() => {
     axios
@@ -52,6 +53,7 @@ function ProductDetails() {
     } else {
       // If authenticated, proceed with adding to cart
       const data = {
+        user_name: user.username,
         email: productList.added_by.email,
         image: productList.image,
         product_code: productList.product_code,
