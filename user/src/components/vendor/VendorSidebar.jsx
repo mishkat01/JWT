@@ -5,7 +5,7 @@ const AdminSidebar = () => {
   return (
     <>
       <div
-        className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+        className="d-flex flex-column flex-shrink-0 p-3 text-white bg-info"
         style={{ width: "280px", height: "1000px", display: "block" }}
       >
         <hr />

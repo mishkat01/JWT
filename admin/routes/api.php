@@ -36,9 +36,12 @@ Route::post('logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
 Route::get('/productList/{remark}', [ProductController::class, 'ProductListByRemark']);
 Route::get('/allProduct', [ProductController::class, 'AllProduct']);
+Route::get('/allvendor', [ProductController::class, 'AllVendor']);
+
 Route::get('/allActiveProduct', [ProductController::class, 'getActiveProduct']);
 Route::post('/activeStatus/{id}', [ProductController::class, 'activeStatus']);
 Route::get('/deleteProduct/{id}', [ProductController::class, 'DeleteProduct']);
+Route::get('/deleteVendor/{id}', [ProductController::class, 'DeleteVendor']);
 
 Route::post('/storeProduct', [ProductController::class, 'StoreProduct']);
 Route::get('/CartDetails', [ProductCartController   ::class, 'CartDetails']);

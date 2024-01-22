@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2023 at 10:57 PM
+-- Generation Time: Dec 26, 2023 at 08:30 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -115,6 +115,7 @@ CREATE TABLE `products` (
 
 CREATE TABLE `product_carts` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `user_name` varchar(50) NOT NULL,
   `image` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `product_name` varchar(255) NOT NULL,
@@ -124,34 +125,6 @@ CREATE TABLE `product_carts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `product_carts`
---
-
-INSERT INTO `product_carts` (`id`, `image`, `email`, `product_name`, `quantity`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mail', 'test', '5', '40', '200', NULL, NULL),
-(2, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mail', 'test', '5', '40', '200', NULL, NULL),
-(3, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mail', 'test', '5', '40', '200', NULL, NULL),
-(4, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu', 'test', '3', '40', '120', NULL, NULL),
-(5, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu', 'test', '1', '40', '40', NULL, NULL),
-(6, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '4', '40', '160', NULL, NULL),
-(7, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '2', '40', '80', NULL, NULL),
-(8, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '1', '40', '40', NULL, NULL),
-(9, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '3', '40', '120', NULL, NULL),
-(10, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '1', '40', '40', NULL, NULL),
-(11, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '1', '40', '40', NULL, NULL),
-(12, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '2', '40', '80', NULL, NULL),
-(13, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '1', '40', '40', NULL, NULL),
-(14, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '1', '40', '40', NULL, NULL),
-(15, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '2', '40', '80', NULL, NULL),
-(16, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '2', '40', '80', NULL, NULL),
-(17, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '2', '40', '80', NULL, NULL),
-(18, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '1', '40', '40', NULL, NULL),
-(19, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '1', '40', '40', NULL, NULL),
-(20, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '2', '40', '80', NULL, NULL),
-(21, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '1', '40', '40', NULL, NULL),
-(22, 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'mishu@g', 'test', '3', '40', '120', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -179,7 +152,12 @@ INSERT INTO `product_details` (`id`, `product_id`, `image`, `short_description`,
 (3, 6, NULL, '1fdgfd', 'long', NULL, NULL),
 (4, 7, NULL, 'sho', 'long', NULL, NULL),
 (5, 8, NULL, 'sho', 'long', NULL, NULL),
-(6, 9, NULL, 'ert', 'ert', NULL, NULL);
+(6, 9, NULL, 'ert', 'ert', NULL, NULL),
+(7, 10, NULL, 'Fast delivery', 'Comfortable nice t shirt for men', NULL, NULL),
+(8, 11, NULL, 'Fast delivery', 'Comfortable nice t shirt for men', NULL, NULL),
+(9, 12, NULL, 'fast delivery', 'nice kids toy to play with', NULL, NULL),
+(10, 13, NULL, 'fast delivery', 'nice kids toy to play with', NULL, NULL),
+(11, 14, NULL, 'fast delivery', 'easy nice to clean', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -209,14 +187,11 @@ CREATE TABLE `product_lists` (
 
 INSERT INTO `product_lists` (`id`, `user_id`, `title`, `price`, `special_price`, `image`, `category`, `remark`, `subcategory`, `product_code`, `status`, `created_at`, `updated_at`) VALUES
 (1, 6, 'test', '50', '40', 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'demo ', 'top', 'test', '564', '1', NULL, NULL),
-(2, 7, 'test2', '120', '120', 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'test', 'top', 'test', 'test', '1', NULL, NULL),
-(3, 8, 'test 3', '90', '50', 'https://www.protek.it/wp-content/uploads/DEMO-ONLINE-1.png', 'test', 'test', 'tesat', '56456', '1', NULL, NULL),
-(4, 2, 'mail', 'iamge', 'name', NULL, '564', '5', '5', '213', '1', NULL, '2023-12-25 15:44:16'),
-(5, 2, 'mail', 'iamge', 'name', NULL, '564', '5', '5', '213', '1', NULL, '2023-12-25 15:53:08'),
-(6, 2, 'mail', 'iamge', 'name', NULL, '564', '5', '5', '213', '1', NULL, '2023-12-25 15:55:05'),
-(7, 12, 'name', '45', '50', 'http://127.0.0.1:8000/upload/product/1786282752537852.webp', 'cat', 'top', 'subcat', '5555', '1', NULL, NULL),
-(8, 10, 'name', '45', '50', 'http://127.0.0.1:8000/upload/product/1786283113798934.webp', 'cat', 'top', 'subcat', '5555', '1', NULL, '2023-12-25 15:47:30'),
-(9, 9, 'ret', 'ert', 'ert', 'http://127.0.0.1:8000/upload/product/1786286185720274.webp', 'ert', 'top', 'ert', 'dfg', '1', NULL, '2023-12-25 15:23:29');
+(10, 9, 'Mens T-Shirt', '500', '400', 'http://127.0.0.1:8000/upload/product/1786319330595363.jpg', 'Men', 'top', 'Shirt', '555', '1', NULL, '2023-12-25 23:30:52'),
+(11, 9, 'Casual Mens T-Shirt', '600', '500', 'http://127.0.0.1:8000/upload/product/1786319826890593.jpg', 'Men', 'top', 'Shirt', '556', '0', NULL, NULL),
+(12, 9, 'toy', '1200', '700', 'http://127.0.0.1:8000/upload/product/1786320462272726.webp', 'kids', 'top', 'kids', '569', '1', NULL, '2023-12-26 00:24:08'),
+(13, 9, 'toy collection', '800', '750', 'http://127.0.0.1:8000/upload/product/1786320586133043.jpg', 'kids', 'top', 'kids', '567', '1', NULL, '2023-12-26 00:55:04'),
+(14, 9, 'Fidar', '100', '90', 'http://127.0.0.1:8000/upload/product/1786320820727369.jpg', 'kids', 'top', 'kids', '800', '1', NULL, '2023-12-25 23:30:58');
 
 -- --------------------------------------------------------
 
@@ -275,7 +250,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `phone`, `role`, `cr
 (11, 'rakahsan', '$2y$12$dMyM60lQmo8wFYDHY5hYNuuesjmKq.J3a5yd0HQEF5p5PSLDFPPZq', 'raku@g', '012545445487', 'vendor', '2023-12-10 06:38:05', '2023-12-10 06:38:05'),
 (12, 'shuvo', '$2y$12$eI5iM25.3Lvilg8UbYzLBO0/lFzBOT.rlEAjj5Wx8qmD.MmE.Hkcq', 'shuvo@gmai', '012845245', 'user', '2023-12-10 08:43:31', '2023-12-10 08:43:31'),
 (13, 'aur', '$2y$12$TFDf6VGvHGYLYFuyZAXWduAR4PoXi5O7th4934hpRjUbh5AcAGQOG', 'aur@gmai', '42065', 'user', '2023-12-17 13:26:11', '2023-12-17 13:26:11'),
-(14, 'tania', '$2y$12$eRrNPoK3UGxXofDmhkMV4unDMuww8XtYyC03vqbptLPQNqkEqnkDG', 'tania@gmail', '018452451', 'user', '2023-12-19 14:56:30', '2023-12-19 14:56:30');
+(14, 'tania', '$2y$12$eRrNPoK3UGxXofDmhkMV4unDMuww8XtYyC03vqbptLPQNqkEqnkDG', 'tania@gmail', '018452451', 'user', '2023-12-19 14:56:30', '2023-12-19 14:56:30'),
+(15, 'raju', '$2y$12$vajQxTz.fua2V2FAvm3iAuVsxeyt6TxdMB/yw6JHXNKM.V0TBImru', 'raju@gmail.com', '018525412', 'vendor', '2023-12-25 23:50:50', '2023-12-25 23:50:50');
 
 --
 -- Indexes for dumped tables
@@ -377,19 +353,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_carts`
 --
 ALTER TABLE `product_carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `product_details`
 --
 ALTER TABLE `product_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `product_lists`
 --
 ALTER TABLE `product_lists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -401,7 +377,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

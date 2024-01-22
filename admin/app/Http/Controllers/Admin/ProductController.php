@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProductList;
+use App\Models\User;
 use App\Models\ProductDetails;
 use Image;
 
@@ -20,6 +21,11 @@ class ProductController extends Controller
     public function AllProduct(){
        
         $allProduct=  ProductList ::latest()->get() ;
+        return $allProduct;
+    }
+    public function AllVendor(){
+       
+        $allProduct=  User ::where('role','vendor')->get() ;
         return $allProduct;
     }
     public function getActiveProduct(){
@@ -102,6 +108,14 @@ public function DeleteProduct($id){
   
 
     ProductList::findOrfail($id)->delete();
+  
+    return response('');
+}//end method
+
+public function DeleteVendor($id){
+  
+
+    User::findOrfail($id)->delete();
   
     return response('');
 }//end method

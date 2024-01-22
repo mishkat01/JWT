@@ -28,7 +28,7 @@ const AdminSidebar = () => {
             </Link>
           </li>
           <li>
-            <Link
+            {/* <Link
               to="/adminDashboard/productAdd"
               className="nav-link text-white"
             >
@@ -36,7 +36,7 @@ const AdminSidebar = () => {
                 <use xlinkHref="#table"></use>
               </svg>
               Product Add
-            </Link>
+            </Link> */}
           </li>
           <li>
             <Link
@@ -57,7 +57,7 @@ const AdminSidebar = () => {
               <svg className="bi me-2" width="16" height="16">
                 <use xlinkHref="#table"></use>
               </svg>
-              vendor's
+              Vendor's
             </Link>
           </li>
         </ul>
